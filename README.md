@@ -627,7 +627,7 @@ ffmpeg -i 'https://xxx.m3u8' -c copy output.mp4
 
 如果您对本软件的使用构成侵犯版权的基础，或您将本软件用于任何其他非法目的，作者不承担任何责任。
 
-This software is distributed under the [Apache-2.0 license](https://raw.github.com/czzonet/acfun-video-climaster/LICENSE).
+This software is distributed under the [Apache-2.0 license](https://raw.github.com/czzonet/acfun-video-cli/master/LICENSE).
 
 In particular, please be aware that
 
