@@ -1,0 +1,32 @@
+{
+  "name": "acfun-video-cli",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "bin": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "author": "czzonet <czzonet@163.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^14.6.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/czzonet/acfun-video-cli.git"
+  },
+  "keywords": [
+    "acfun-video-cli",
+    "acfun-video",
+    "acfun",
+    "video",
+    "download",
+    "node",
+    "aria2c",
+    "ffmpeg"
+  ],
+  "bugs": {
+    "url": "https://github.com/czzonet/acfun-video-cli/issues"
+  },
+  "homepage": "https://github.com/czzonet/acfun-video-cli#readme"
+}
