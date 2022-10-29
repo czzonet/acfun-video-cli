@@ -37,4 +37,7 @@ async function main() {
   console.log("ok");
 }
 
-main().then();
+//main().then();
+
+import { indexRun } from "./2.0.0/index";
+indexRun();

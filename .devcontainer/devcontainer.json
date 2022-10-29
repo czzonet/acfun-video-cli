@@ -17,7 +17,13 @@
     // Configure properties specific to VS Code.
     "vscode": {
       // Add the IDs of extensions you want installed when the container is created.
-      "extensions": ["dbaeumer.vscode-eslint","mhutchie.git-graph","esbenp.prettier-vscode"]
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "mhutchie.git-graph",
+        "esbenp.prettier-vscode",
+        "christian-kohler.path-intellisense",
+        "spmeesseman.vscode-taskexplorer"
+      ]
     }
   },
 
