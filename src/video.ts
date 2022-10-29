@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import { runShell } from "./runShell";
+import { CONFIG } from "./config";
 
 export async function downloadM3u8Videos(
   m3u8FullUrls: string[],
@@ -28,7 +29,7 @@ export async function downloadM3u8Videos(
   fs.writeFileSync(path.resolve(outPath, "urls.txt"), m3u8FullUrls.join("\n"));
 
   /** aria2c多线程下载 */
-  await runShell("aria2c", ["-i", "./urls.txt"], {
+  await runShell(CONFIG.aria2cPath.linux, ["-i", "./urls.txt"], {
     cwd: path.resolve(outPath),
   });
 }
@@ -47,7 +48,7 @@ export async function mergeVideo(
 
   /** ffmpeg合并 */
   await runShell(
-    "ffmpeg",
+    CONFIG.ffmpegPath.linux,
     [
       "-f",
       "concat",

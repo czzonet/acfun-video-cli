@@ -6,7 +6,7 @@
   "files": [
     "dist/"
   ],
-    "scripts": {
+  "scripts": {
     "test": "jest",
     "testCoverage": "jest --coverage",
     "run": "ts-node -P ./tsconfig.json --files ./src/index.ts",
@@ -15,7 +15,7 @@
   "author": "czzonet <czzonet@163.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-       "@babel/core": "^7.17.9",
+    "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
     "@types/jest": "^27.4.1",
@@ -42,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/czzonet/acfun-video-cli/issues"
   },
-  "homepage": "https://github.com/czzonet/acfun-video-cli#readme"
+  "homepage": "https://github.com/czzonet/acfun-video-cli#readme",
+  "dependencies": {
+    "rxjs": "^7.5.7"
+  }
 }

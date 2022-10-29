@@ -40,4 +40,4 @@ async function main() {
 //main().then();
 
 import { indexRun } from "./2.0.0/index";
-indexRun();
+indexRun("https://www.acfun.cn/v/ac4621380");
