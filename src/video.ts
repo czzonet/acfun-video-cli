@@ -2,6 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { runShell } from "./runShell";
 import { CONFIG } from "./config";
+import { getPlatform } from "./platform";
 
 export async function downloadM3u8Videos(
   m3u8FullUrls: string[],
@@ -53,7 +54,7 @@ export async function downloadM3u8Videos(
 
   /** aria2c 一一下载(-j 1) */
   await runShell(
-    CONFIG.aria2cPath.linux,
+    CONFIG.aria2cPath[getPlatform()],
     [
       "--header",
       "Referer: https://www.acfun.cn/",
@@ -82,7 +83,7 @@ export async function mergeVideo(
 
   /** ffmpeg合并 */
   await runShell(
-    CONFIG.ffmpegPath.linux,
+    CONFIG.ffmpegPath[getPlatform()],
     [
       "-f",
       "concat",
