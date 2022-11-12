@@ -56,6 +56,7 @@ export async function downloadM3u8Videos(
   await runShell(
     CONFIG.aria2cPath[getPlatform()],
     [
+      "--check-certificate=false",
       "--header",
       "Referer: https://www.acfun.cn/",
       "-j",
