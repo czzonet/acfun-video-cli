@@ -25,60 +25,47 @@ export async function downloadM3u8Videos(
   const outPath = path.resolve(process.cwd(), outputFolderName);
   fs.mkdirSync(outPath);
 
+  const str下载参数文件 = m3u8FullUrls
+    .map((d, i) => {
+      return d + "\n  out=" + i + ".ts"; /** 指定文件名0.ts 1.ts ... */
+    })
+    .join("\n");
+
   /** 写入下载链接列表文件 */
-  fs.writeFileSync(path.resolve(outPath, "urls.txt"), m3u8FullUrls.join("\n"));
+  fs.writeFileSync(path.resolve(outPath, "urls.txt"), str下载参数文件);
 
-  for (let index = 0; index < m3u8FullUrls.length; index++) {
-    const element = m3u8FullUrls[index];
-    await runShell(
-      CONFIG.aria2cPath.linux,
-      [
-        "--header",
-        "Referer: https://www.acfun.cn/",
-        "-o",
-        index + ".ts",
-        element,
-      ],
-      {
-        cwd: path.resolve(outPath),
-      }
-    );
-  }
+  // for (let index = 0; index < m3u8FullUrls.length; index++) {
+  //   const element = m3u8FullUrls[index];
+  //   await runShell(
+  //     CONFIG.aria2cPath.linux,
+  //     [
+  //       "--header",
+  //       "Referer: https://www.acfun.cn/",
+  //       "-o",
+  //       index + ".ts",
+  //       element,
+  //     ],
+  //     {
+  //       cwd: path.resolve(outPath),
+  //     }
+  //   );
+  // }
 
-  /** aria2c多线程下载 */
-  // await runShell(
-  //   CONFIG.aria2cPath.linux,
-  //   [
-  //     "--header",
-  //     "Referer: https://www.acfun.cn/",
-  //     // "--header",
-  //     // "Accept: */*",
-  //     // "--header",
-  //     // "Accept-Encoding: gzip, deflate, br",
-  //     // "--header",
-  //     // "Accept-Language: zh-CN,zh;q=0.9,en;q=0.8",
-  //     // "--header",
-  //     // "Cache-Control: no-cache",
-  //     // "--header",
-  //     // "Connection: keep-alive",
-  //     // "--header",
-  //     // "Host: tx-safety-video.acfun.cn",
-  //     // "--header",
-  //     // "Origin: https://www.acfun.cn",
-  //     // "--header",
-  //     // "Pragma: no-cache",
-  //     // "--header",
-  //     // "Referer: https://www.acfun.cn/",
-  //     // "--header",
-  //     // "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
-
-  //     "-i",
-  //     "./urls.txt",
-  //   ],
-  //   {
-  //     cwd: path.resolve(outPath),
-  //   }
-  // );
+  /** aria2c 一一下载(-j 1) */
+  await runShell(
+    CONFIG.aria2cPath.linux,
+    [
+      "--header",
+      "Referer: https://www.acfun.cn/",
+      "-j",
+      "1",
+      "-i",
+      "./urls.txt",
+    ],
+    {
+      cwd: path.resolve(outPath),
+    }
+  );
 }
 
 export async function mergeVideo(
