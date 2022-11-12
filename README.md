@@ -1,11 +1,15 @@
 ![](./acfun.png)
 
+
+# v3.0.0
+
+- [x] 适配win ok
+
 # v2.0.0
 
-整合了win、mac和linux的aria2c和ffmpeg，开箱即用。但体积占用了200MB。
-
-- [ ]  rxjs重构流式编程
-
+- [ ] 开始整合win、mac和linux的aria2c和ffmpeg，开箱即用。但体积占用了200MB。
+- [ ] rxjs重构流式编程
+- [x] 文件夹命名
 
 # 使用Node下载Acfun视频--解析A站视频API、aria2c多线程下载和ffmpeg合并
 
