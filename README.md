@@ -1,5 +1,12 @@
 ![](./acfun.png)
 
+# v2.0.0
+
+整合了win、mac和linux的aria2c和ffmpeg，开箱即用。但体积占用了200MB。
+
+- [ ]  rxjs重构流式编程
+
+
 # 使用Node下载Acfun视频--解析A站视频API、aria2c多线程下载和ffmpeg合并
 
 本文介绍如何使用Node实现下载Acfun视频，主要流程包括解析A站视频API，调用aria2c多线程下载m3u8分片和调用ffmpeg合并视频。
