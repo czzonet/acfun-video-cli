@@ -27,7 +27,7 @@ export const runShell = async (
 
     /** 结束处理 */
     runpProcess.on("close", (code) => {
-      resolve();
+      resolve(undefined);
     });
   });
 
