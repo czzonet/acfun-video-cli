@@ -3,6 +3,7 @@ import * as path from "path";
 import { runShell } from "./runShell";
 import { CONFIG } from "./config";
 import { getPlatform } from "./platform";
+import { resolve } from "path";
 
 export async function downloadM3u8Videos(
   m3u8FullUrls: string[],
@@ -78,9 +79,12 @@ export async function mergeVideo(
   const outPath = path.resolve(process.cwd(), outputFolderName);
 
   /** 合并参数列表 格式file path */
-  const concatStrs = tsNames.map((d, i) => `file '${outPath}/${i}.ts'`);
+  const concatStrs = tsNames.map(
+    (d, i) => `file '${resolve(outPath, i + ".ts")}'`
+  );
   /** 写入合并参数列表文件 */
-  fs.writeFileSync(path.resolve(outPath, "files.txt"), concatStrs.join("\n"));
+  const f = path.resolve(outPath, "files.txt");
+  fs.writeFileSync(f, concatStrs.join("\n"));
 
   /** ffmpeg合并 */
   await runShell(
@@ -91,10 +95,10 @@ export async function mergeVideo(
       "-safe",
       "0",
       "-i",
-      "./files.txt",
+      `"${f}"`,
       "-c",
       "copy",
-      outputFileName,
+      `"${outputFileName}"`,
     ],
     { cwd: path.resolve(outPath) }
   );

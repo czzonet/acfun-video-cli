@@ -18,7 +18,7 @@ const source = {
   stowCount: 15989,
   description: "第二次尝试韩舞，这次是真•性感风！\\r<br/>这种画风你们喜欢吗！",
   likeCount: 2663,
-  title: "【Kyokyo】★提线木偶★Stellar",
+  title: "【Kyokyo】★提线木偶★Stellar  ",
   hasHotComment: true,
   shareCountShow: "721",
   belongToSpecifyArubamu: false,
@@ -186,10 +186,10 @@ const source = {
 describe("parseVideoName", () => {
   it("should", () => {
     expect(parseVideoName(source)).toEqual(
-      "ac4621380_【Kyokyo】★提线木偶★Stellar_Kyokyo沉迷汉堡王_2018-10-4_第二次尝试韩舞，这次是真•性感风！\\r<br/>这种画风你们喜欢吗！"
+      "ac4621380_【Kyokyo】★提线木偶★Stellar  _Kyokyo沉迷汉堡王_2018-10-4_第二次尝试韩舞，这次是真•性感风！\\r<br/>这种画风你们喜欢吗！"
     );
     expect(parseVideoNameFixed(source)).toEqual(
-      "ac4621380_【Kyokyo】★提线木偶★Stellar_Kyokyo沉迷汉堡王_2018-10-4_第二次尝试韩舞，这次是真•性感风！-r-br-这种画风你们喜欢吗！"
+      "ac4621380_【Kyokyo】★提线木偶★Stellar-_Kyokyo沉迷汉堡王_2018-10-4_第二次尝试韩舞，这次是真•性感风！-r-br-这种画风你们喜欢吗！"
     );
   });
 });
