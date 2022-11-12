@@ -1,5 +1,7 @@
 import { getUrlData } from "./api";
 
+import { parseVideoNameFixed } from "./2.0.0/lib/parseVideoName";
+
 export async function parseUrl(videoUrlAddress: string) {
   // eg https://www.acfun.cn/v/ac4621380?quickViewId=videoInfo_new&ajaxpipe=1
   const urlSuffix = "?quickViewId=videoInfo_new&ajaxpipe=1";
@@ -16,6 +18,8 @@ export async function parseUrl(videoUrlAddress: string) {
   /** Object videoInfo */
   const videoInfo = JSON.parse(strJsonEscaped);
 
+  const videoName = parseVideoNameFixed(videoInfo);
+
   const ksPlayJson = videoInfo.currentVideoInfo.ksPlayJson;
   /** Object ksPlay */
   const ksPlay = JSON.parse(ksPlayJson);
@@ -23,7 +27,7 @@ export async function parseUrl(videoUrlAddress: string) {
   const representations: any[] = ksPlay.adaptationSet[0].representation;
   const urlM3u8s: string[] = representations.map((d) => d.url);
 
-  return urlM3u8s;
+  return { urlM3u8s, videoName };
 }
 
 /**
