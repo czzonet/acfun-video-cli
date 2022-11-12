@@ -4,6 +4,7 @@
 # v3.0.0
 
 - [x] 适配win ok
+- [x] webpack打包
 
 # v2.0.0
 
