@@ -9,7 +9,7 @@
   "scripts": {
     "test": "jest",
     "testCoverage": "jest --coverage",
-    "run": "ts-node -P ./tsconfig.json --files ./src/index.ts",
+    "run": "ts-node -P ./tsconfig.json --files ./src/index.ts  https://www.acfun.cn/v/ac4621380",
     "build": "tsc"
   },
   "author": "czzonet <czzonet@163.com>",
@@ -20,6 +20,7 @@
     "@babel/preset-typescript": "^7.16.7",
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.23",
+    "@types/ramda": "^0.28.18",
     "eslint": "^8.12.0",
     "jest": "^27.5.1",
     "ts-node": "^10.7.0",
@@ -44,6 +45,7 @@
   },
   "homepage": "https://github.com/czzonet/acfun-video-cli#readme",
   "dependencies": {
+    "ramda": "^0.28.0",
     "rxjs": "^7.5.7"
   }
 }

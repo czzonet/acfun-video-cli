@@ -22,7 +22,9 @@
         "mhutchie.git-graph",
         "esbenp.prettier-vscode",
         "christian-kohler.path-intellisense",
-        "spmeesseman.vscode-taskexplorer"
+        "spmeesseman.vscode-taskexplorer",
+        "orta.vscode-jest",
+        "streetsidesoftware.code-spell-checker"
       ]
     }
   },

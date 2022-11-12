@@ -5,6 +5,6 @@ export const CONFIG = {
     linux: resolve(__dirname, "../public/aria2c/linux/engine/aria2c"),
   },
   ffmpegPath: {
-    linux: resolve(__dirname, "../public/ffmpeg/linux"),
+    linux: resolve(__dirname, "../public/ffmpeg/linux/ffmpeg"),
   },
 };

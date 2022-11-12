@@ -36,14 +36,14 @@ function escapeSpecialChars(str: string) {
 
 export async function parseM3u8(m3u8Url: string) {
   const m3u8File = await getUrlData(m3u8Url);
+
   /** 分离ts文件链接 */
   const rawPieces = m3u8File.split(/\n#EXTINF:.{8},\n/);
   /** 过滤头部 */
   const m3u8RelativeLinks = rawPieces.slice(1);
   /** 修改尾部 去掉尾部多余的结束符 */
-  const patchedTail = m3u8RelativeLinks[m3u8RelativeLinks.length - 1].split(
-    "\n"
-  )[0];
+  const patchedTail =
+    m3u8RelativeLinks[m3u8RelativeLinks.length - 1].split("\n")[0];
   m3u8RelativeLinks[m3u8RelativeLinks.length - 1] = patchedTail;
 
   /** 完整链接，直接加m3u8Url的通用前缀 */
