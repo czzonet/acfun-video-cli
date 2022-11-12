@@ -22,7 +22,8 @@ export const runShell = async (
       stdio: "inherit",
       cwd: options.cwd ? options.cwd : process.cwd(),
       env: process.env,
-      detached: true,
+      // detached: true,
+      shell: true,
     });
 
     /** 结束处理 */
