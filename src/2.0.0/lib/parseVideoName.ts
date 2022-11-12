@@ -16,7 +16,9 @@ export const parseVideoName = (videoInfo: any) => {
 };
 
 export const parseVideoNameFixed = (videoInfo: any) => {
-  return filenamify(parseVideoName(videoInfo), {
+  const f = parseVideoName(videoInfo);
+  const t = f.replaceAll(" ", "-");
+  return filenamify(t, {
     replacement: "-",
   });
 };
