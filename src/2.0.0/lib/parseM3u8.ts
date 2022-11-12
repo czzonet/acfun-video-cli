@@ -69,21 +69,23 @@ export const parseM3u8ByRamdaFull = (
   m3u8File: string,
   m3u8Url: string
 ): string[] =>
-  map(
-    pipe(
-      concat("/"),
-      concat(pipe(split("/"), slice(0, -1) as ArraySlice, join("/"))(m3u8Url))
-    ),
-    pipe(
-      split(/\n#EXTINF:.{8},\n/),
-      slice(1, Infinity) as ArraySlice,
-      converge(concat as ArrayConcat, [
-        slice(0, -1) as ArraySlice,
-        pipe(
-          (strArr) => strArr[strArr.length - 1] || "",
-          pipe(split("\n"), (strArr) => strArr[0] || ""),
-          (str) => [str]
-        ),
-      ])
-    )(m3u8File)
-  );
+  pipe(
+    // 相对地址列表
+    split(/\n#EXTINF:.{8},\n/),
+    slice(1, Infinity) as ArraySlice,
+    converge(concat as ArrayConcat, [
+      slice(0, -1) as ArraySlice,
+      pipe(
+        (strArr) => strArr[strArr.length - 1] || "",
+        pipe(split("\n"), (strArr) => strArr[0] || ""),
+        (str) => [str]
+      ),
+    ]),
+    // 绝对地址列表
+    map(
+      pipe(
+        concat("/"),
+        concat(pipe(split("/"), slice(0, -1) as ArraySlice, join("/"))(m3u8Url)) // TODO: 还不够纯
+      )
+    )
+  )(m3u8File);

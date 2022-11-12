@@ -14,7 +14,7 @@ export const indexRun = (url: string) => {
       }),
       map((m3u8Urls) => m3u8Urls[0]),
       tap((m3u8Url1080p) => {
-        console.log("[1080p] ", m3u8Url1080p);
+        console.log("[I] 最高清晰度", m3u8Url1080p);
       }),
       mergeMap((m3u8Url1080p) => parseM3u8(m3u8Url1080p))
     )
